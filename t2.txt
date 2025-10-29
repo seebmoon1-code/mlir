@@ -6,3 +6,16 @@ sudo apt install build-essential cmake
 
 # نصب ابزارهای توصیه شده (Git برای دریافت سورس کد، Ninja برای کامپایل سریعتر)
 sudo apt install git ninja-build
+
+*******************************
+
+# به پوشه اصلی کاربر خود بروید (اگر از قبل آنجا نیستید)
+cd ~
+
+# یک پوشه برای پروژه ایجاد و وارد آن شوید
+mkdir llvm-project
+cd llvm-project
+
+# سورس کد LLVM و MLIR را دانلود کنید
+git clone https://github.com/llvm/llvm-project.git
+**********************************
