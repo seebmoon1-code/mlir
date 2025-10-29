@@ -20,6 +20,26 @@ cd llvm-project
 git clone https://github.com/llvm/llvm-project.git
 **********************************
 
+# وارد پوشه اصلی پروژه شوید
+cd ~/llvm-project
+
+# یک پوشه مجزا برای فایل‌های خروجی کامپایل ایجاد کنید
+mkdir build
+cd build
+
+# پیکربندی با CMake (فعال کردن MLIR و تنظیم برای ساخت بهینه)
+cmake -G Ninja ../llvm-project/llvm \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DLLVM_ENABLE_PROJECTS="mlir" \
+  -DLLVM_ENABLE_RUNTIMES="all"
+
+# شروع فرآیند ساخت با Ninja (این مرحله زمان‌بر است!)
+ninja
+
+******************************
+
+
+
 
 
 
