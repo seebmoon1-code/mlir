@@ -1,0 +1,8 @@
+# به‌روزرسانی لیست بسته‌ها
+sudo apt update
+
+# نصب ابزارهای حیاتی ساخت (مثل GCC/G++، Make) و CMake
+sudo apt install build-essential cmake
+
+# نصب ابزارهای توصیه شده (Git برای دریافت سورس کد، Ninja برای کامپایل سریعتر)
+sudo apt install git ninja-build
