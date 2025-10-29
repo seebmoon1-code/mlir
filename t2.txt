@@ -19,3 +19,9 @@ cd llvm-project
 # سورس کد LLVM و MLIR را دانلود کنید
 git clone https://github.com/llvm/llvm-project.git
 **********************************
+
+
+
+
+
+
