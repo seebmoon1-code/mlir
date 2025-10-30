@@ -1,3 +1,15 @@
+cmake -G Ninja -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_PROJECTS="mlir" -DLLVM_ENABLE_RUNTIMES="all" ..
+******************************
+
+
+
+
+
+
+
+
+
+
 خب mlir
 ی چارچوب کامپایلریه اما
 ninja
