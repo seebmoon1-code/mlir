@@ -1,4 +1,26 @@
 
+
+# برگشت به یک دایرکتوری بالاتر (llvm-project)
+cd ..
+
+# حذف پوشه build (که حاوی تنظیمات و فایل‌های ساخت خراب است)
+rm -rf build
+
+# ایجاد و ورود مجدد به پوشه build
+mkdir build
+cd build
+
+
+
+
+
+
+
+
+
+
+
+
 ..........
 sudo swapoff /swapfile
 
