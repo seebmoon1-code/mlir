@@ -1,0 +1,7 @@
+cd ~/Desktop/cnew 
+mkdir build
+cd build
+
+# اجرای cmake برای پیکربندی Ninja و استفاده از clang++ به عنوان کامپایلر C++
+# (فرض می‌کنیم clang++ به عنوان کامپایلر شما تنظیم شده است)
+cmake .. -G "Ninja" -DCMAKE_CXX_COMPILER=clang++
