@@ -1,3 +1,32 @@
+
+sudo swapoff /swapfile
+
+
+sudo rm /swapfile
+
+sudo rm /swapfile
+
+
+sudo fallocate -l 16G /swapfile  # ایجاد فایل ۱۶G
+sudo chmod 600 /swapfile          # تنظیم دسترسی‌ها
+sudo mkswap /swapfile             # فرمت کردن به عنوان Swap
+sudo swapon /swapfile             # فعال‌سازی Swap
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 sudo fallocate -l 16G /swapfile
 
 
