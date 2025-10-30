@@ -1,3 +1,18 @@
+
+cd ~/Desktop/cnew
+rm -rf build  # پاکسازی فایل‌های ساخت قبلی
+mkdir build
+cd build
+
+# اجرای cmake (نقطه "." به معنای پوشه والد یعنی cnew است که حاوی CMakeLists.txt است)
+cmake .. -G "Ninja" -DCMAKE_CXX_COMPILER=clang++
+
+
+
+
+
+
+
 cd ~/Desktop/cnew 
 mkdir build
 cd build
