@@ -1,3 +1,4 @@
+#CMakeLists.txt
 
 # تنظیم حداقل نسخه مورد نیاز CMake
 cmake_minimum_required(VERSION 3.10)
