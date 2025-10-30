@@ -1,22 +1,11 @@
+# فایل: cnew/compiler/CMakeLists.txt
+file(GLOB CNG_SOURCES "*.cpp")
 
-cd ~/Desktop/cnew
-rm -rf build  # پاکسازی فایل‌های ساخت قبلی
-mkdir build
-cd build
+# تنظیمات شامل هدرهای عمومی برای دسترسی به تعاریف توکن‌ها
+target_include_directories(CNG_COMPILER PUBLIC .)
 
-# اجرای cmake (نقطه "." به معنای پوشه والد یعنی cnew است که حاوی CMakeLists.txt است)
-cmake .. -G "Ninja" -DCMAKE_CXX_COMPILER=clang++
+# ایجاد یک کتابخانه استاتیک به نام CNG_COMPILER 
+add_library(CNG_COMPILER STATIC ${CNG_SOURCES})
 
-
-
-
-
-
-
-cd ~/Desktop/cnew 
-mkdir build
-cd build
-
-# اجرای cmake برای پیکربندی Ninja و استفاده از clang++ به عنوان کامپایلر C++
-# (فرض می‌کنیم clang++ به عنوان کامپایلر شما تنظیم شده است)
-cmake .. -G "Ninja" -DCMAKE_CXX_COMPILER=clang++
+# اضافه کردن دایرکتوری هدرهای ما به لیست جستجوی هدرهای عمومی
+target_include_directories(CNG_COMPILER PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
