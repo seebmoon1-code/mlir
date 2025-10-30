@@ -1,5 +1,21 @@
 
 
+
+cmake ../llvm \
+-G Ninja \
+-DCMAKE_BUILD_TYPE=Release \
+-DLLVM_ENABLE_PROJECTS="clang;lld;..." \
+-DLIBCXXABI_USE_COMPILER_RT=ON \
+-DLIBCXXABI_USE_LLVM_UNWIND_TABLES=ON
+
+
+
+
+
+
+
+
+
 # برگشت به یک دایرکتوری بالاتر (llvm-project)
 cd ..
 
