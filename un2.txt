@@ -1,0 +1,67 @@
+#include "Lexer.h"
+#include <iostream>
+#include <string>
+#include <cctype> // برای توابعی مانند isspace, isalpha, isdigit
+
+using namespace cng; 
+
+// متغیر سراسری برای نگهداری آخرین کاراکتر خوانده شده از ورودی
+static int LastChar = ' ';
+
+// متغیرهایی برای ذخیره اطلاعات توکن (مقدار شناسه یا عدد)
+std::string IdentifierStr; // برای ذخیره رشته‌های شناسه‌ها و کلمات کلیدی
+double NumVal;             // برای ذخیره مقادیر عددی
+
+// تابع اصلی: خواندن و برگرداندن توکن بعدی
+int cng::getNextToken() {
+    // ۱. پرش از روی فضاهای خالی
+    while (isspace(LastChar)) {
+        LastChar = getchar();
+    }
+
+    // ۲. شناسه‌ها و کلمات کلیدی (مثل 'create', 'file', 'folder' یا نام متغیرها)
+    if (isalpha(LastChar)) { 
+        IdentifierStr = LastChar;
+        // خواندن بقیه کاراکترها تا زمانی که حروف یا عدد هستند
+        while (isalnum((LastChar = getchar()))) {
+            IdentifierStr += LastChar;
+        }
+
+        // بررسی کلمات کلیدی (Keywords)
+        if (IdentifierStr == "create") return tok_create;
+        if (IdentifierStr == "file") return tok_type_file;
+        if (IdentifierStr == "folder") return tok_type_folder;
+        // ... (سایر کلمات کلیدی بعداً اضافه می‌شوند)
+        
+        // اگر کلمه کلیدی نبود، یک شناسه (Identifier) است
+        return tok_identifier;
+    }
+
+    // ۳. اعداد (مثل 123، 45.6)
+    if (isdigit(LastChar) || LastChar == '.') { 
+        std::string NumStr;
+        do {
+            NumStr += LastChar;
+            LastChar = getchar();
+        } while (isdigit(LastChar) || LastChar == '.');
+
+        NumVal = std::stod(NumStr); // تبدیل رشته به عدد اعشاری
+        return tok_number;
+    }
+    
+    // ۴. مدیریت پایان فایل (End of File)
+    if (LastChar == EOF) {
+        return tok_eof;
+    }
+
+    // ۵. مدیریت کاراکترهای نامشخص (فقط کاراکتر را برمی‌گرداند)
+    int ThisChar = LastChar;
+    LastChar = getchar();
+    return ThisChar;
+}
+
+// برای کامپایل صحیح نیاز به یک تابع main ساده داریم
+int main() {
+    // این تابع اصلی فعلاً خالی است و بعداً آن را به بدنه اصلی کامپایلر تبدیل می‌کنیم.
+    return 0;
+}
